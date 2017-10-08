@@ -14,5 +14,20 @@ public class BoughtItems extends GroceryItem {
         this.totalPrice = totalPrice;
     }
 
+    public double getUnitPrice() {
+        return unitPrice;
+    }
 
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+        setTotalPrice();
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    private void setTotalPrice() {
+        this.totalPrice = getUnitPrice()*getItemUnits();
+    }
 }

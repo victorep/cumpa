@@ -13,6 +13,10 @@ public class GroceryList<T extends GroceryItem> {
     Scanner scanner = new Scanner(System.in);
 
 
+    public GroceryList(){
+
+
+    }
 
     public void addItem(T item){
         list.add(item);

@@ -23,27 +23,22 @@ public class App {
         System.out.println("Initializing " + name + " version " + ver);
     }
 
-    private static void getItemDetails(){
+    private static GroceryItem getItemDetails(){
+        GroceryItem item = new GroceryItem();
+
         System.out.println("=== Input item details ===");
-        System.out.print("Name: ");itemName = scanner.nextLine();
-        //System.out.print("Category: ");itemCategory = scanner.nextLine();
-        //System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
-        System.out.print("Units : ");itemUnits = scanner.nextInt();
+        System.out.print("Name: ");item.setItemName( scanner.nextLine());
+        System.out.print("Units : ");item.setItemUnits(itemUnits = scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
 
-        // some logic after input
-        //itemTotalPrice = itemUnitPrice * itemUnits;
-
+        return item;
     }
 
-    private static void showItemDetails(){
+    private static void showItemDetails(GroceryItem item){
         System.out.println("=== Our product ===");
-        System.out.printf("Name: %s \n",itemName);
-        //System.out.printf("Category: %s \n",itemCategory);
-        //System.out.printf("Unit proice: %s \n",itemUnitPrice);
-        System.out.printf("Total units: %s \n",itemUnits);
-        //System.out.printf("Total price: %s \n",itemTotalPrice);
+        System.out.printf("Name: %s \n",item.getItemName());
+        System.out.printf("Total units: %s \n",item.getItemUnits());
         System.out.println("===================");
     }
 
@@ -51,38 +46,13 @@ public class App {
 
         initApp(appName,appVersion);
 
-        //getItemDetails();
-        //showItemDetails();
-
-
-        /*
-        int numberOfItems;
-        System.out.print("How many items do you want to input: "); numberOfItems=scanner.nextInt();
-        scanner.nextLine(); // this is needed because nextInt does not consume the new line character and the next input will be skipped
-        for (int i=0;i<numberOfItems;i++){
-
-            System.out.println("### Enter item  " + i);
-            getItemDetails();
-            showItemDetails();
-
-        }
-        */
         boolean _continue = true;
         int i=0;
         while (_continue){
             i++;
-            getItemDetails();
-            showItemDetails();
+            GroceryItem item = getItemDetails();
+            showItemDetails(item);
             System.out.print("Enter another one[y/N] : ");
-
-            /*
-            if (scanner.nextLine().toLowerCase().equals("y")){
-                _continue=true;
-
-            }else{
-                _continue=false;
-            }
-            */
 
             switch (scanner.nextLine().toLowerCase()){
                 case  "y":

@@ -32,22 +32,12 @@ public class App {
         System.out.print("Units : ");itemUnits = scanner.nextInt();
         System.out.println("======= End input ========");
 
-    }
-
-    public static void main(String[] args) {
-
-
-
-
-
-
-        initApp(appName,appVersion);
-
-
-
-        // some logig after input
+        // some logic after input
         itemTotalPrice = itemUnitPrice * itemUnits;
 
+    }
+
+    private static void showItemDetails(){
         System.out.println("=== Our product ===");
         System.out.printf("Name: %s \n",itemName);
         System.out.printf("Category: %s \n",itemCategory);
@@ -55,7 +45,13 @@ public class App {
         System.out.printf("Total units: %s \n",itemUnits);
         System.out.printf("Total price: %s \n",itemTotalPrice);
         System.out.println("===================");
+    }
 
+    public static void main(String[] args) {
+
+        initApp(appName,appVersion);
+        getItemDetails();
+        showItemDetails();
         System.out.println("Application finished");
 
 

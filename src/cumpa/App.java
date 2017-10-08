@@ -21,7 +21,7 @@ public class App {
 
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");item.setItemName( scanner.nextLine());
-        System.out.print("Units : ");item.setItemUnits(itemUnits = scanner.nextInt());
+        System.out.print("Units : ");item.setItemUnits( scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
         return item;

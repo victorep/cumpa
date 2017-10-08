@@ -1,6 +1,5 @@
 package cumpa;
 
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class App {
@@ -12,57 +11,54 @@ public class App {
     //Input scanner
     private static Scanner scanner = new Scanner(System.in);
 
+    //Array to store our items
+    private static GroceryList<GroceryItem> groceryList = new GroceryList();
+
+    private static GroceryList<GroceryItem> boughtList = new GroceryList();
+
     private static void initApp(String name, double ver){
         System.out.println("Initializing " + name + " version " + ver);
-    }
-
-    private static GroceryItem getItemDetails(){
-        GroceryItem item = new GroceryItem();
-
-        System.out.println("=== Input item details ===");
-        System.out.print("Name: ");item.setItemName( scanner.nextLine());
-        System.out.print("Units : ");item.setItemUnits(itemUnits = scanner.nextInt());
-        scanner.nextLine();
-        System.out.println("======= End input ========");
-        return item;
-    }
-
-    private static void showItemDetails(GroceryItem item){
-        System.out.println("=== Our product ===");
-        System.out.printf("Name: %s \n",item.getItemName());
-        System.out.printf("Total units: %s \n",item.getItemUnits());
-        System.out.println("===================");
     }
 
     public static void main(String[] args) {
 
         initApp(appName,appVersion);
+        //add some items so we don't have to do it manually
+        groceryList.addItem(new GroceryItem("beer",1));
+        groceryList.addItem(new GroceryItem("tomatoes",1));
+        groceryList.addItem(new GroceryItem("potatoes",2));
+        boolean exit=false;
+        int option=0;
+        while (!exit){
 
-        boolean _continue = true;
-        int i=0;
-        while (_continue){
-            i++;
-            GroceryItem item = getItemDetails();
-            showItemDetails(item);
-            System.out.print("Enter another one[y/N] : ");
-
-            switch (scanner.nextLine().toLowerCase()){
-                case  "y":
-                    _continue=true;
+            switch (option){
+                case 0:
+                    System.out.println("======OPTIONS LIST=====");
+                    System.out.println(">1. List required groceries");
+                    System.out.println(">2. Add required groceries");
+                    System.out.println(">3. Delete a required grocery");
+                    System.out.println(">9. EXIT");
+                    System.out.println("=== END OPTIONS LIST===");
                     break;
-                case  "n":
-                    _continue=false;
+                case 1:
+                    groceryList.showAllGroceries( );
                     break;
-                case "":
-                    _continue=false;
+                case 2:
+                    groceryList.getMultipleGroceryItemsCLI( );
                     break;
-                default:
-                    _continue=false;
-                    System.out.println("Invalid Option");
+                case 3:
+                    groceryList.removeItemCLI();
             }
+            System.out.println("What do you want to do ? [0 for options] ");
+            option = scanner.nextInt();
+            scanner.nextLine();
         }
-        System.out.println("You entered " + i + " items.");
 
+       // boughtList.getMultipleGroceryItemsCLI( );
+
+
+        //groceryList.showAllGroceries();
+        boughtList.showAllGroceries();
 
         System.out.println("Application finished");
 

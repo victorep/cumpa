@@ -1,10 +1,12 @@
 package cumpa;
 
-public class GroceryItem {
+import java.util.Scanner;
+
+public class GroceryItem implements IGroceryItem{
     private  String itemName;
     private  int itemUnits;
 
-
+    static Scanner  scanner = new Scanner(System.in);
 
     public GroceryItem() {
     }
@@ -28,5 +30,18 @@ public class GroceryItem {
 
     public void setItemUnits(int itemUnits) {
         this.itemUnits = itemUnits;
+    }
+    public void showItemDetailsCLI(){
+        System.out.printf("%s x %s \n",getItemName(),getItemUnits());
+    }
+
+    public  void getItemDetailsCLI(){
+
+        System.out.println("=== Input item details ===");
+        System.out.print("Name: ");setItemName( scanner.nextLine());
+        System.out.print("Units : ");setItemUnits(scanner.nextInt());
+        scanner.nextLine();
+        System.out.println("======= End input ========");
+
     }
 }

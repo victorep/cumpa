@@ -4,7 +4,12 @@ public class App {
 
     public static void main(String[] args) {
         String appName = "Our Groceries";
-        System.out.println("This will be an app called " + appName + ". It will help families organise groceries");
+        int appVersion = 1;
+        //System.out.println("This will be an app called " + appName + ". It will help families organise groceries");
+
+        System.out.println("Initializing " + appName + " version " + appVersion);
+
+        System.out.println("Application finished");
 
     }
 

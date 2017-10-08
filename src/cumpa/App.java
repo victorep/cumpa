@@ -9,18 +9,20 @@ public class App {
         System.out.println("Initializing " + name + " version " + ver);
     }
 
+    //our grocery item
+    private static String itemName;
+    private static String itemCategory;
+    private static double itemUnitPrice;
+    private static int itemUnits;
+    private static double itemTotalPrice;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         String appName = "Our Groceries";
         double appVersion = 0.1;
 
-        //our grocery item
-        String itemName;
-        String itemCategory;
-        double itemUnitPrice;
-        int itemUnits;
-        double itemTotalPrice;
+
 
         initApp(appName,appVersion);
 

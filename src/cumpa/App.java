@@ -46,36 +46,45 @@ public class App {
         System.out.println("==========================");
     }
 
-    public static void main(String[] args) {
-
-        initApp(appName,appVersion);
+    private static void addMultipleGroceryItems(ArrayList<GroceryItem> list){
 
         boolean _continue = true;
         int i=0;
         while (_continue){
             i++;
             GroceryItem item = getItemDetails();
-            groceryItems.add(item);
-            System.out.print("Enter another one[y/N] : ");
-
-            switch (scanner.nextLine().toLowerCase()){
-                case  "y":
-                    _continue=true;
-                    break;
-                case  "n":
-                    _continue=false;
-                    break;
-                case "":
-                    _continue=false;
-                    break;
-                default:
-                    _continue=false;
-                    System.out.println("Invalid Option");
-            }
+            list.add(item);
+            System.out.print("Enter another one[Y/n] : ");
+            boolean validOption=false;
+            while (!validOption)
+                switch (scanner.nextLine().toLowerCase()){
+                    case  "y":
+                        _continue=true;
+                        validOption=true;
+                        break;
+                    case  "n":
+                        _continue=false;
+                        validOption=true;
+                        break;
+                    case "":
+                        _continue=true;
+                        validOption=true;
+                        break;
+                    default:
+                        _continue=false;
+                        System.out.println("Invalid Option");
+                }
         }
 
 
         System.out.println("You entered " + i + " items.");
+    }
+
+    public static void main(String[] args) {
+
+        initApp(appName,appVersion);
+
+        addMultipleGroceryItems(groceryItems);
 
         showAllGroceries(groceryItems);
 

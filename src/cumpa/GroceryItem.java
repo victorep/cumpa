@@ -1,6 +1,6 @@
 package cumpa;
 
-public class GroceryItem {
+public class GroceryItem implements IGroceryItem{
     private  String itemName;
     private  int itemUnits;
 

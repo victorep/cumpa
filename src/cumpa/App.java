@@ -12,13 +12,6 @@ public class App {
     //Input scanner
     private static Scanner scanner = new Scanner(System.in);
 
-    //our grocery item
-    private static String itemName;
-    private static String itemCategory;
-    private static double itemUnitPrice;
-    private static int itemUnits;
-    private static double itemTotalPrice;
-
     private static void initApp(String name, double ver){
         System.out.println("Initializing " + name + " version " + ver);
     }
@@ -31,7 +24,6 @@ public class App {
         System.out.print("Units : ");item.setItemUnits(itemUnits = scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
-
         return item;
     }
 

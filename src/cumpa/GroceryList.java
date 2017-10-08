@@ -22,6 +22,9 @@ public class GroceryList<T extends GroceryItem> {
         list.add(item);
     }
 
+    public void removeItem(int id){
+        list.remove(id);
+    }
     public T getItem(int id){
         return list.get(id);
     }
@@ -29,9 +32,26 @@ public class GroceryList<T extends GroceryItem> {
     public  void showAllGroceries(){
         System.out.println("=== Grocery items list ===");
         for ( int i=0;i<list.size();i++){
-            list.get(i).showItemDetailsCLI();
+            System.out.printf("(%s) ",i+1); list.get(i).showItemDetailsCLI();
         }
         System.out.println("==========================");
+    }
+    public void removeItemCLI(){
+        int id;
+        System.out.print("Enter the item id: ");id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("=======Removing item=====");
+
+        if (id >0 && id<=list.size()){
+            id--;
+            System.out.println("Removing Item "+getItem(id).getItemName());
+            removeItem(id);
+            System.out.println("Removed succesfully");
+        }else {
+            System.out.printf("Item %s not found %s\n", id,list.size());
+        }
+        System.out.println("=========================");
+
     }
 
     public void getMultipleGroceryItemsCLI(){

@@ -23,13 +23,40 @@ public class App {
     public static void main(String[] args) {
 
         initApp(appName,appVersion);
+        //add some items so we don't have to do it manually
+        groceryList.addItem(new GroceryItem("beer",1));
+        groceryList.addItem(new GroceryItem("tomatoes",1));
+        groceryList.addItem(new GroceryItem("potatoes",2));
+        boolean exit=false;
+        int option=0;
+        while (!exit){
+
+            switch (option){
+                case 0:
+                    System.out.println("======OPTIONS LIST=====");
+                    System.out.println(">1. List required groceries");
+                    System.out.println(">2. Add required groceries");
+                    System.out.println(">3. Delete a required grocery");
+                    System.out.println("=== END OPTIONS LIST===");
+                    break;
+                case 1:
+                    groceryList.showAllGroceries( );
+                    break;
+                case 2:
+                    groceryList.getMultipleGroceryItemsCLI( );
+                    break;
+                case 3:
+                    groceryList.removeItemCLI();
+            }
+            System.out.println("What do you want to do ? [0 for options] ");
+            option = scanner.nextInt();
+            scanner.nextLine();
+        }
+
+       // boughtList.getMultipleGroceryItemsCLI( );
 
 
-        groceryList.getMultipleGroceryItemsCLI( );
-        boughtList.getMultipleGroceryItemsCLI( );
-
-
-        groceryList.showAllGroceries();
+        //groceryList.showAllGroceries();
         boughtList.showAllGroceries();
 
         System.out.println("Application finished");

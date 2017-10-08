@@ -32,10 +32,7 @@ public class GroceryItem implements IGroceryItem{
         this.itemUnits = itemUnits;
     }
     public void showItemDetailsCLI(){
-        System.out.println("=== item ===");
-        System.out.printf("Name: %s \n",getItemName());
-        System.out.printf("Total units: %s \n",getItemUnits());
-        System.out.println("============");
+        System.out.printf("%s x %s \n",getItemName(),getItemUnits());
     }
 
     public  void getItemDetailsCLI(){

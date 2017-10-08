@@ -12,20 +12,22 @@ public class App {
         double appVersion = 0.1;
 
         //our grocery item
-        String itemName = "Milk 1L";
-        String itemCategory = "Food";
-        double itemUnitPrice = 5.6;
-        int itemUnits = 2;
-        double itemTotalPrice = itemUnits*itemUnitPrice;
+        String itemName;
+        String itemCategory;
+        double itemUnitPrice;
+        int itemUnits;
+        double itemTotalPrice;
 
         System.out.println("Initializing " + appName + " version " + appVersion);
         System.out.println("=== Input item details ===");
-        System.out.print("Name: ");itemName = scanner.next();
+        System.out.print("Name: ");itemName = scanner.nextLine();
         System.out.print("Category: ");itemCategory = scanner.next();
-        System.out.print("Unit Price");itemUnitPrice = scanner.nextDouble();
-        System.out.print("Total Units");itemUnits = scanner.nextInt();
-
+        System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
+        System.out.print("Units : ");itemUnits = scanner.nextInt();
         System.out.println("======= End input ========");
+
+        // some logig after input
+        itemTotalPrice = itemUnitPrice * itemUnits;
 
         System.out.println("=== Our product ===");
         System.out.printf("Name: %s \n",itemName);

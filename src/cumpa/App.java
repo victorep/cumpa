@@ -50,8 +50,19 @@ public class App {
     public static void main(String[] args) {
 
         initApp(appName,appVersion);
+
+        //getItemDetails();
+        //showItemDetails();
+
         getItemDetails();
-        showItemDetails();
+
+        for (int i=0;i<10;i++){
+
+            System.out.println("I am " + i);
+            showItemDetails();
+
+        }
+
         System.out.println("Application finished");
 
 

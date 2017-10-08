@@ -1,6 +1,7 @@
 package cumpa;
 
-import javax.sound.midi.Soundbank;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -12,6 +13,10 @@ public class App {
     //Input scanner
     private static Scanner scanner = new Scanner(System.in);
 
+    //Array to store our items
+    private static ArrayList<GroceryItem> groceryItems = new ArrayList<>();
+
+
     private static void initApp(String name, double ver){
         System.out.println("Initializing " + name + " version " + ver);
     }
@@ -21,17 +26,24 @@ public class App {
 
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");item.setItemName( scanner.nextLine());
-        System.out.print("Units : ");item.setItemUnits(itemUnits = scanner.nextInt());
+        System.out.print("Units : ");item.setItemUnits(scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
         return item;
     }
 
     private static void showItemDetails(GroceryItem item){
-        System.out.println("=== Our product ===");
+        System.out.println("=== item ===");
         System.out.printf("Name: %s \n",item.getItemName());
         System.out.printf("Total units: %s \n",item.getItemUnits());
-        System.out.println("===================");
+        System.out.println("============");
+    }
+    private static void showAllGroceries(ArrayList<GroceryItem> list){
+        System.out.println("=== Grocery items list ===");
+        for ( int i=0;i<list.size();i++){
+            showItemDetails(list.get(i));
+        }
+        System.out.println("==========================");
     }
 
     public static void main(String[] args) {
@@ -43,7 +55,7 @@ public class App {
         while (_continue){
             i++;
             GroceryItem item = getItemDetails();
-            showItemDetails(item);
+            groceryItems.add(item);
             System.out.print("Enter another one[y/N] : ");
 
             switch (scanner.nextLine().toLowerCase()){
@@ -61,8 +73,11 @@ public class App {
                     System.out.println("Invalid Option");
             }
         }
+
+
         System.out.println("You entered " + i + " items.");
 
+        showAllGroceries(groceryItems);
 
         System.out.println("Application finished");
 

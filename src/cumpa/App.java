@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class App {
 
+    private static void initApp(String name, double ver){
+        System.out.println("Initializing " + name + " version " + ver);
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -17,6 +21,8 @@ public class App {
         double itemUnitPrice;
         int itemUnits;
         double itemTotalPrice;
+
+        initApp(appName,appVersion);
 
         System.out.println("Initializing " + appName + " version " + appVersion);
         System.out.println("=== Input item details ===");
@@ -38,6 +44,7 @@ public class App {
         System.out.println("===================");
 
         System.out.println("Application finished");
+
 
     }
 

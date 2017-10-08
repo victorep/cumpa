@@ -42,7 +42,8 @@ public class GroceryList<T extends GroceryItem> {
         scanner.nextLine();
         System.out.println("=======Removing item=====");
 
-        if (id >0 && id<=list.size()){
+        if (id >0 &&
+                id<=list.size()){
             id--;
             System.out.println("Removing Item "+getItem(id).getItemName());
             removeItem(id);

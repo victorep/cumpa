@@ -24,12 +24,12 @@ public class App {
     }
 
     private static void getItemDetails(){
-        System.out.println("Initializing " + appName + " version " + appVersion);
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");itemName = scanner.nextLine();
-        System.out.print("Category: ");itemCategory = scanner.next();
+        System.out.print("Category: ");itemCategory = scanner.nextLine();
         System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
         System.out.print("Units : ");itemUnits = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("======= End input ========");
 
         // some logic after input
@@ -54,11 +54,15 @@ public class App {
         //getItemDetails();
         //showItemDetails();
 
-        getItemDetails();
+        int numberOfItems;
 
-        for (int i=0;i<10;i++){
+        System.out.print("How many items do you want to input: "); numberOfItems=scanner.nextInt();
+        scanner.nextLine(); // this is needed because nextInt does not consume the new line character and the next input will be skipped
 
-            System.out.println("I am " + i);
+        for (int i=0;i<numberOfItems;i++){
+
+            System.out.println("### Enter item  " + i);
+            getItemDetails();
             showItemDetails();
 
         }

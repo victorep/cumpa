@@ -5,9 +5,12 @@ import java.util.Scanner;
 
 public class App {
 
-    private static void initApp(String name, double ver){
-        System.out.println("Initializing " + name + " version " + ver);
-    }
+    //App variables
+    private static String appName = "Our Groceries";
+    private static double appVersion = 0.1;
+
+    //Input scanner
+    private static Scanner scanner = new Scanner(System.in);
 
     //our grocery item
     private static String itemName;
@@ -16,16 +19,11 @@ public class App {
     private static int itemUnits;
     private static double itemTotalPrice;
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    private static void initApp(String name, double ver){
+        System.out.println("Initializing " + name + " version " + ver);
+    }
 
-        String appName = "Our Groceries";
-        double appVersion = 0.1;
-
-
-
-        initApp(appName,appVersion);
-
+    private static void getItemDetails(){
         System.out.println("Initializing " + appName + " version " + appVersion);
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");itemName = scanner.nextLine();
@@ -33,6 +31,19 @@ public class App {
         System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
         System.out.print("Units : ");itemUnits = scanner.nextInt();
         System.out.println("======= End input ========");
+
+    }
+
+    public static void main(String[] args) {
+
+
+
+
+
+
+        initApp(appName,appVersion);
+
+
 
         // some logig after input
         itemTotalPrice = itemUnitPrice * itemUnits;

@@ -37,6 +37,7 @@ public class App {
                     System.out.println(">1. List required groceries");
                     System.out.println(">2. Add required groceries");
                     System.out.println(">3. Delete a required grocery");
+                    System.out.println(">9. EXIT");
                     System.out.println("=== END OPTIONS LIST===");
                     break;
                 case 1:

@@ -1,24 +1,24 @@
 package cumpa;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GroceryList {
+public class GroceryList<T extends GroceryItem> {
 
 
-    ArrayList<GroceryItem> list = new ArrayList<>();
+    ArrayList<T> list = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
 
-    public class GroceryItem extends cumpa.GroceryItem{
 
-    }
 
-    public void addItem(GroceryItem item){
+    public void addItem(T item){
         list.add(item);
     }
 
-    public GroceryItem getItem(int id){
+    public T getItem(int id){
         return list.get(id);
     }
 
@@ -36,7 +36,7 @@ public class GroceryList {
         int i=0;
         while (_continue){
             i++;
-            GroceryItem item = new GroceryItem();
+            T item =(T) new GroceryItem();
             item.getItemDetailsCLI();
             addItem(item);
             System.out.print("Enter another one[Y/n] : ");

@@ -6,7 +6,7 @@ public class GroceryItem implements IGroceryItem{
     private  String itemName;
     private  int itemUnits;
 
-    Scanner scanner = new Scanner(System.in);
+    static Scanner  scanner = new Scanner(System.in);
 
     public GroceryItem() {
     }
@@ -38,11 +38,13 @@ public class GroceryItem implements IGroceryItem{
         System.out.println("============");
     }
 
-    public void getItemDetailsCLI(){
+    public  void getItemDetailsCLI(){
+
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");setItemName( scanner.nextLine());
         System.out.print("Units : ");setItemUnits(scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
+
     }
 }

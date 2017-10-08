@@ -1,7 +1,5 @@
 package cumpa;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -14,8 +12,9 @@ public class App {
     private static Scanner scanner = new Scanner(System.in);
 
     //Array to store our items
-    private static GroceryList groceryList = new GroceryList();
+    private static GroceryList<GroceryItem> groceryList = new GroceryList();
 
+    private static GroceryList<GroceryItem> boughtList = new GroceryList();
 
     private static void initApp(String name, double ver){
         System.out.println("Initializing " + name + " version " + ver);
@@ -25,9 +24,13 @@ public class App {
 
         initApp(appName,appVersion);
 
-        groceryList.getMultipleGroceryItemsCLI();
+
+        groceryList.getMultipleGroceryItemsCLI( );
+        boughtList.getMultipleGroceryItemsCLI( );
+
 
         groceryList.showAllGroceries();
+        boughtList.showAllGroceries();
 
         System.out.println("Application finished");
 

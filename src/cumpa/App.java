@@ -75,11 +75,28 @@ public class App {
             showItemDetails();
             System.out.print("Enter another one[y/N] : ");
 
+            /*
             if (scanner.nextLine().toLowerCase().equals("y")){
                 _continue=true;
 
             }else{
                 _continue=false;
+            }
+            */
+
+            switch (scanner.nextLine().toLowerCase()){
+                case  "y":
+                    _continue=true;
+                    break;
+                case  "n":
+                    _continue=false;
+                    break;
+                case "":
+                    _continue=false;
+                    break;
+                default:
+                    _continue=false;
+                    System.out.println("Invalid Option");
             }
         }
         System.out.println("You entered "+i+" items.");

@@ -99,7 +99,7 @@ public class App {
                     System.out.println("Invalid Option");
             }
         }
-        System.out.println("You entered "+i+" items.");
+        System.out.println("You entered " + i + " items.");
 
 
         System.out.println("Application finished");

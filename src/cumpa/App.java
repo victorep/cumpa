@@ -26,24 +26,24 @@ public class App {
     private static void getItemDetails(){
         System.out.println("=== Input item details ===");
         System.out.print("Name: ");itemName = scanner.nextLine();
-        System.out.print("Category: ");itemCategory = scanner.nextLine();
-        System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
+        //System.out.print("Category: ");itemCategory = scanner.nextLine();
+        //System.out.print("Unit Price: ");itemUnitPrice = scanner.nextDouble();
         System.out.print("Units : ");itemUnits = scanner.nextInt();
         scanner.nextLine();
         System.out.println("======= End input ========");
 
         // some logic after input
-        itemTotalPrice = itemUnitPrice * itemUnits;
+        //itemTotalPrice = itemUnitPrice * itemUnits;
 
     }
 
     private static void showItemDetails(){
         System.out.println("=== Our product ===");
         System.out.printf("Name: %s \n",itemName);
-        System.out.printf("Category: %s \n",itemCategory);
-        System.out.printf("Unit proice: %s \n",itemUnitPrice);
+        //System.out.printf("Category: %s \n",itemCategory);
+        //System.out.printf("Unit proice: %s \n",itemUnitPrice);
         System.out.printf("Total units: %s \n",itemUnits);
-        System.out.printf("Total price: %s \n",itemTotalPrice);
+        //System.out.printf("Total price: %s \n",itemTotalPrice);
         System.out.println("===================");
     }
 
@@ -54,11 +54,11 @@ public class App {
         //getItemDetails();
         //showItemDetails();
 
-        int numberOfItems;
 
+        /*
+        int numberOfItems;
         System.out.print("How many items do you want to input: "); numberOfItems=scanner.nextInt();
         scanner.nextLine(); // this is needed because nextInt does not consume the new line character and the next input will be skipped
-
         for (int i=0;i<numberOfItems;i++){
 
             System.out.println("### Enter item  " + i);
@@ -66,6 +66,24 @@ public class App {
             showItemDetails();
 
         }
+        */
+        boolean _continue = true;
+        int i=0;
+        while (_continue){
+            i++;
+            getItemDetails();
+            showItemDetails();
+            System.out.print("Enter another one[y/N] : ");
+
+            if (scanner.nextLine().toLowerCase().equals("y")){
+                _continue=true;
+
+            }else{
+                _continue=false;
+            }
+        }
+        System.out.println("You entered "+i+" items.");
+
 
         System.out.println("Application finished");
 

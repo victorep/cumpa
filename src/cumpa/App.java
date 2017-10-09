@@ -41,7 +41,7 @@ public class App {
                     System.out.println("=== END OPTIONS LIST===");
                     break;
                 case 1:
-                    groceryList.showAllGroceries( );
+                    System.out.print(groceryList.listAllGroceriesAsText( ));
                     break;
                 case 2:
                     groceryList.getMultipleGroceryItemsCLI( );
@@ -53,7 +53,6 @@ public class App {
             option = scanner.nextInt();
             scanner.nextLine();
         }
-        boughtList.showAllGroceries();
 
         System.out.println("Application finished");
 

@@ -29,12 +29,14 @@ public class GroceryList<T extends GroceryItem> {
         return list.get(id);
     }
 
-    public  void showAllGroceries(){
-        System.out.println("=== Grocery items list ===");
+    public String listAllGroceriesAsText(){
+        String output=new String();
+        output+="=== Grocery items list ===\n";
         for ( int i=0;i<list.size();i++){
-            System.out.printf("(%s) ",i+1); list.get(i).showItemDetailsCLI();
+            output+="("+(i+1)+") " +list.get(i).showItemDetailsAsText()+ "\n";
         }
-        System.out.println("==========================");
+        output+="==========================\n";
+        return output;
     }
     public void removeItemCLI(){
         int id;

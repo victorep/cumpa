@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="cumpa.gui.HomeController"
-            prefHeight="200.0" prefWidth="200.0"
+            prefHeight="350.0" prefWidth="400.0"
 >
     <top>
-        <HBox alignment="CENTER" prefHeight="50" >
+        <HBox alignment="CENTER" prefHeight="50"  >
             <Label text="Groceries List">
                 <font>
                     <Font size="20"></Font>
@@ -22,11 +23,28 @@
         </HBox>
     </top>
     <center>
-        <VBox alignment="CENTER" spacing="10">
+
+        <HBox spacing="10" alignment="CENTER">
+        <padding>
+            <Insets left="10"></Insets>
+            <Insets right="10"></Insets>
+        </padding>
+            <TextArea fx:id="outputArea" text="Nothing yet" prefWidth="250"></TextArea>
+        </HBox>
+    </center>
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10" prefWidth="120">
             <Button fx:id="listGroceries" text="LIST" prefWidth="90" onAction="#buttonPress"/>
             <Button fx:id="addGroceries" text="ADD"  prefWidth="90" onAction="#buttonPress"/>
             <Button fx:id="removeGroceries" text="REMOVE"  prefWidth="90" onAction="#buttonPress"/>
         </VBox>
-    </center>
+    </right>
+    <bottom>
+        <HBox alignment="TOP_CENTER" spacing="10" prefHeight="30">
+            <Label text="Status: " />
+            <Label fx:id="statusLabel" text="no background tasks" prefWidth="120"/>
+
+        </HBox>
+    </bottom>
 
 </BorderPane>

@@ -1,14 +1,15 @@
 package cumpa.gui;
 
 import cumpa.App;
-import cumpa.GroceryItem;
-import cumpa.GroceryList;
+import cumpa.datamodel.GroceryItem;
+import cumpa.datamodel.GroceryList;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 
 import java.util.Scanner;
@@ -25,35 +26,59 @@ public class HomeController {
     private Button removeGroceries;
 
     @FXML
-    private Label statusLabel;
+    private TextArea outputArea;
 
     @FXML
-    private TextArea outputArea;
+    private ListView list;
+
+    //Array to store our items
+    private App app = new App();
 
     @FXML
     private void buttonPress(ActionEvent e){
         if (e.getSource().equals(listGroceries)) {
 
-            outputArea.insertText(0,groceryList.listAllGroceriesAsText());
-            //System.out.print(groceryList.listAllGroceriesAsText());}
+           Runnable task = new Runnable(){
+                @Override
+                public void run() {
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            listGroceries.setDisable(true);
+                            outputArea.insertText(0,"[List] Start\n");
+
+                            outputArea.insertText(0,app.getGroceryList().listAllGroceriesAsText());
+                            list.getItems().setAll(app.getGroceryList().getList());
+                            outputArea.insertText(0,"[List] finish\n");
+                            listGroceries.setDisable(false);
+                        }
+                    });
+
+
+                }
+            };
+
+            new Thread(task).start();
+
         }
         else if (e.getSource().equals(addGroceries)) {
             Runnable task = new Runnable(){
                 @Override
                 public void run() {
-                    String previousStatus=statusLabel.getText();
+
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
                             addGroceries.setDisable(true);
-                            statusLabel.setText("Running Add item");
+
                         }
                     });
-                    groceryList.getMultipleGroceryItemsCLI();
+                    app.getGroceryList().getMultipleGroceryItemsCLI();
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                             statusLabel.setText(previousStatus);
+
                             addGroceries.setDisable(false);
                         }
                     });
@@ -65,18 +90,14 @@ public class HomeController {
             new Thread(task).start();
 
         }
-        else if (e.getSource().equals(removeGroceries)) { groceryList.removeItemCLI();}
+        else if (e.getSource().equals(removeGroceries)) { app.getGroceryList().removeItemCLI();}
     }
 
     public HomeController(){
-        groceryList.addItem(new GroceryItem("beer",1));
-        groceryList.addItem(new GroceryItem("tomatoes",1));
-        groceryList.addItem(new GroceryItem("potatoes",2));
+        app.getGroceryList().addItem(new GroceryItem("beer",1));
+        app.getGroceryList().addItem(new GroceryItem("tomatoes",1));
+        app.getGroceryList().addItem(new GroceryItem("potatoes",2));
     }
-    //Input scanner
-    private static Scanner scanner = new Scanner(System.in);
 
-    //Array to store our items
-    private static GroceryList<GroceryItem> groceryList = new GroceryList();
 
 }

@@ -1,4 +1,4 @@
-package cumpa;
+package cumpa.datamodel;
 
 public interface IGroceryItem {
     String getItemName();

@@ -11,7 +11,8 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="cumpa.gui.HomeController"
-            prefHeight="350.0" prefWidth="400.0"
+            prefHeight="600.0" prefWidth="400.0"
+
 >
     <top>
         <HBox alignment="CENTER" prefHeight="50"  >
@@ -22,29 +23,44 @@
             </Label>
         </HBox>
     </top>
-    <center>
+    <left>
 
+    </left>
+    <center>
         <HBox spacing="10" alignment="CENTER">
+        <ListView fx:id="list">
+
+        </ListView>
+
         <padding>
             <Insets left="10"></Insets>
             <Insets right="10"></Insets>
+            <Insets bottom="10"></Insets>
         </padding>
-            <TextArea fx:id="outputArea" text="Nothing yet" prefWidth="250"></TextArea>
+
         </HBox>
     </center>
     <right>
         <VBox alignment="TOP_CENTER" spacing="10" prefWidth="120">
+
             <Button fx:id="listGroceries" text="LIST" prefWidth="90" onAction="#buttonPress"/>
             <Button fx:id="addGroceries" text="ADD"  prefWidth="90" onAction="#buttonPress"/>
             <Button fx:id="removeGroceries" text="REMOVE"  prefWidth="90" onAction="#buttonPress"/>
         </VBox>
     </right>
     <bottom>
-        <HBox alignment="TOP_CENTER" spacing="10" prefHeight="30">
-            <Label text="Status: " />
-            <Label fx:id="statusLabel" text="no background tasks" prefWidth="120"/>
 
-        </HBox>
+        <GridPane alignment="CENTER" vgap="40" >
+            <padding>
+                <Insets top="10"></Insets>
+                <Insets bottom="10"></Insets>
+
+            </padding>
+            <TextArea fx:id="outputArea" text="Nothing yet" prefHeight="100" GridPane.rowIndex="0" ></TextArea>
+
+        </GridPane>
+
+
     </bottom>
 
 </BorderPane>

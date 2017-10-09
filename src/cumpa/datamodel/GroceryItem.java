@@ -1,4 +1,4 @@
-package cumpa;
+package cumpa.datamodel;
 
 import java.util.Scanner;
 

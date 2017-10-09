@@ -1,4 +1,4 @@
-package cumpa;
+package cumpa.datamodel;
 
 public class BoughtItems extends GroceryItem {
 

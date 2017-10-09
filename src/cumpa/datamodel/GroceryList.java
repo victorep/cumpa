@@ -1,8 +1,7 @@
-package cumpa;
+package cumpa.datamodel;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GroceryList<T extends GroceryItem> {
@@ -89,5 +88,9 @@ public class GroceryList<T extends GroceryItem> {
         }
 
         System.out.println("You entered " + i + " items.");
+    }
+
+    public ArrayList<T> getList() {
+        return list;
     }
 }

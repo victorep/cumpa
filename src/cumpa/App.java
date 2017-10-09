@@ -53,11 +53,6 @@ public class App {
             option = scanner.nextInt();
             scanner.nextLine();
         }
-
-       // boughtList.getMultipleGroceryItemsCLI( );
-
-
-        //groceryList.showAllGroceries();
         boughtList.showAllGroceries();
 
         System.out.println("Application finished");

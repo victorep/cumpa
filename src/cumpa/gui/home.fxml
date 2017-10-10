@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cumpa.gui.HomeController"
+            prefHeight="600.0" prefWidth="400.0"
+
+>
+    <top>
+        <HBox alignment="CENTER" prefHeight="50"  >
+            <Label text="Groceries List">
+                <font>
+                    <Font size="20"></Font>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+    <left>
+
+    </left>
+    <center>
+        <HBox spacing="10" alignment="CENTER">
+        <ListView fx:id="list">
+
+        </ListView>
+
+        <padding>
+            <Insets left="10"></Insets>
+            <Insets right="10"></Insets>
+            <Insets bottom="10"></Insets>
+        </padding>
+
+        </HBox>
+    </center>
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10" prefWidth="120">
+
+            <Button fx:id="listGroceries" text="LIST" prefWidth="90" onAction="#buttonPress"/>
+            <Button fx:id="addGroceries" text="ADD"  prefWidth="90" onAction="#buttonPress"/>
+            <Button fx:id="removeGroceries" text="REMOVE"  prefWidth="90" onAction="#buttonPress"/>
+        </VBox>
+    </right>
+    <bottom>
+
+        <GridPane alignment="CENTER" vgap="40" >
+            <padding>
+                <Insets top="10"></Insets>
+                <Insets bottom="10"></Insets>
+
+            </padding>
+            <TextArea fx:id="outputArea" text="Nothing yet" prefHeight="100" GridPane.rowIndex="0" ></TextArea>
+
+        </GridPane>
+
+
+    </bottom>
+
+</BorderPane>

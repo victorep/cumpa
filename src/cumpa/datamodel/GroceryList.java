@@ -1,8 +1,7 @@
-package cumpa;
+package cumpa.datamodel;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class GroceryList<T extends GroceryItem> {
@@ -29,12 +28,14 @@ public class GroceryList<T extends GroceryItem> {
         return list.get(id);
     }
 
-    public  void showAllGroceries(){
-        System.out.println("=== Grocery items list ===");
+    public String listAllGroceriesAsText(){
+        String output=new String();
+        output+="=== Grocery items list ===\n";
         for ( int i=0;i<list.size();i++){
-            System.out.printf("(%s) ",i+1); list.get(i).showItemDetailsCLI();
+            output+="("+(i+1)+") " +list.get(i).showItemDetailsAsText()+ "\n";
         }
-        System.out.println("==========================");
+        output+="==========================\n";
+        return output;
     }
     public void removeItemCLI(){
         int id;
@@ -42,7 +43,8 @@ public class GroceryList<T extends GroceryItem> {
         scanner.nextLine();
         System.out.println("=======Removing item=====");
 
-        if (id >0 && id<=list.size()){
+        if (id >0 &&
+                id<=list.size()){
             id--;
             System.out.println("Removing Item "+getItem(id).getItemName());
             removeItem(id);
@@ -86,5 +88,9 @@ public class GroceryList<T extends GroceryItem> {
         }
 
         System.out.println("You entered " + i + " items.");
+    }
+
+    public ArrayList<T> getList() {
+        return list;
     }
 }

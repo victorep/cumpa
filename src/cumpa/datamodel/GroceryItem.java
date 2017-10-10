@@ -1,4 +1,4 @@
-package cumpa;
+package cumpa.datamodel;
 
 import java.util.Scanner;
 
@@ -31,8 +31,15 @@ public class GroceryItem implements IGroceryItem{
     public void setItemUnits(int itemUnits) {
         this.itemUnits = itemUnits;
     }
+
     public void showItemDetailsCLI(){
-        System.out.printf("%s x %s \n",getItemName(),getItemUnits());
+        System.out.print(showItemDetailsAsText());
+    }
+
+    public String showItemDetailsAsText(){
+        String output=new String();
+        output+=(getItemName() + " x " + getItemUnits());
+        return output;
     }
 
     public  void getItemDetailsCLI(){

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cumpa.gui.MainGUI">
+   <children>
+      <Label text="Groceries List" layoutX="100.0" layoutY="10"><font><Font  name="Times New Roman bold" size="25"></Font></font></Label>
+       <TreeTableView layoutX="14.0" layoutY="50.0" prefHeight="330.0" prefWidth="224.0">
+        <columns>
+          <TreeTableColumn prefWidth="143.0" text="Name" />
+          <TreeTableColumn text="Units" />
+        </columns>
+      </TreeTableView>
+      <Button layoutX="257.0" layoutY="50.0" mnemonicParsing="false" prefWidth="75.0" text="Add" />
+      <Button layoutX="257.0" layoutY="90.0" mnemonicParsing="false" prefWidth="75.0" text="Edit" />
+      <Button layoutX="257.0" layoutY="130.0" mnemonicParsing="false" prefWidth="75.0" text="Remove" />
+   </children>
+</AnchorPane>

@@ -1,9 +1,6 @@
 package cumpa;
 
-import cumpa.datamodel.GroceryItem;
-import cumpa.datamodel.GroceryList;
-
-import java.util.Scanner;
+import cumpa.datamodel.*;
 
 public class App {
 
@@ -11,16 +8,19 @@ public class App {
     private  String appName = "Our Groceries";
     private  double appVersion = 0.1;
 
+    private String persistenceContainer = "GroceryListItems";
+    private GroceryListPersistance persistanceLayer = new GroceryListPersistanceXMLImpl(persistenceContainer);
 
     //Array to store our items
     private  GroceryList<GroceryItem> groceryList = new GroceryList();
 
 
-    public App() {
-        //add some items so we don't have to do it manually
-        groceryList.addItem(new GroceryItem("beer",1));
-        groceryList.addItem(new GroceryItem("tomatoes",1));
-        groceryList.addItem(new GroceryItem("potatoes",2));
+    private App() {
+        load();
+    }
+    private static App instance = new App();
+    public static App getInstance(){
+        return instance;
     }
 
     public GroceryList<GroceryItem> getGroceryList() {
@@ -33,5 +33,18 @@ public class App {
 
     public double getAppVersion() {
         return appVersion;
+    }
+
+    public void load(){
+        try { groceryList.addAll(persistanceLayer.load(persistenceContainer)); }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+    public void save(){
+        try { persistanceLayer.save(persistenceContainer,groceryList); }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
+    public  void exit(){
+        save();
     }
 }

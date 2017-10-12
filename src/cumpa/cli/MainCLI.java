@@ -14,9 +14,8 @@ public class MainCLI {
     //Input scanner
     private static Scanner scanner = new Scanner(System.in);
 
-
     public static void main(String[] args) {
-        App app=new App();
+        App app=App.getInstance();
         GroceryList groceryList=app.getGroceryList();
         initApp(app.getAppName(),app.getAppVersion());
         boolean exit=false;

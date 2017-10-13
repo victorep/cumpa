@@ -4,35 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class GroceryList<T extends GroceryItem> {
-
-
-    ArrayList<T> list = new ArrayList<>();
+public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
 
     Scanner scanner = new Scanner(System.in);
 
-
-    public GroceryList(){
-
-
-    }
-
     public void addItem(T item){
-        list.add(item);
+        this.add(item);
     }
 
     public void removeItem(int id){
-        list.remove(id);
+        this.remove(id);
     }
     public T getItem(int id){
-        return list.get(id);
+        return this.get(id);
     }
 
     public String listAllGroceriesAsText(){
         String output=new String();
         output+="=== Grocery items list ===\n";
-        for ( int i=0;i<list.size();i++){
-            output+="("+(i+1)+") " +list.get(i).showItemDetailsAsText()+ "\n";
+        for ( int i=0;i<this.size();i++){
+            output+="("+(i+1)+") " +this.get(i).showItemDetailsAsText()+ "\n";
         }
         output+="==========================\n";
         return output;
@@ -44,13 +35,13 @@ public class GroceryList<T extends GroceryItem> {
         System.out.println("=======Removing item=====");
 
         if (id >0 &&
-                id<=list.size()){
+                id<=this.size()){
             id--;
             System.out.println("Removing Item "+getItem(id).getItemName());
             removeItem(id);
             System.out.println("Removed succesfully");
         }else {
-            System.out.printf("Item %s not found %s\n", id,list.size());
+            System.out.printf("Item %s not found %s\n", id,this.size());
         }
         System.out.println("=========================");
 
@@ -91,6 +82,6 @@ public class GroceryList<T extends GroceryItem> {
     }
 
     public ArrayList<T> getList() {
-        return list;
+        return this;
     }
 }

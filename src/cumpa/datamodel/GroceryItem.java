@@ -51,4 +51,9 @@ public class GroceryItem implements IGroceryItem{
         System.out.println("======= End input ========");
 
     }
+
+    @Override
+    public String toString() {
+        return showItemDetailsAsText();
+    }
 }

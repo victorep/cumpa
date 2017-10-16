@@ -3,57 +3,49 @@ package cumpa.datamodel;
 import java.util.Scanner;
 
 public class GroceryItem implements IGroceryItem{
-    private  String itemName;
-    private  int itemUnits;
+    private  String name;
+    private  int units;
 
     static Scanner  scanner = new Scanner(System.in);
 
     public GroceryItem() {
     }
 
-    public GroceryItem(String itemName, int itemUnits) {
-        this.itemName = itemName;
-        this.itemUnits = itemUnits;
+    public GroceryItem(String name, int units) {
+        this.name = name;
+        this.units = units;
     }
 
-    public String getItemName() {
-        return itemName;
+    public String getName() {
+        return name;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setName(String itemName) {
+        this.name = itemName;
     }
 
-    public int getItemUnits() {
-        return itemUnits;
+    public int getUnits() {
+        return units;
     }
 
-    public void setItemUnits(int itemUnits) {
-        this.itemUnits = itemUnits;
-    }
-
-    public void showItemDetailsCLI(){
-        System.out.print(showItemDetailsAsText());
-    }
-
-    public String showItemDetailsAsText(){
-        String output=new String();
-        output+=(getItemName() + " x " + getItemUnits());
-        return output;
+    public void setUnits(int units) {
+        this.units = units;
     }
 
     public  void getItemDetailsCLI(){
-
         System.out.println("=== Input item details ===");
-        System.out.print("Name: ");setItemName( scanner.nextLine());
-        System.out.print("Units : ");setItemUnits(scanner.nextInt());
+        System.out.print("Name: ");
+        setName( scanner.nextLine());
+        System.out.print("Units : ");
+        setUnits(scanner.nextInt());
         scanner.nextLine();
         System.out.println("======= End input ========");
-
     }
 
     @Override
     public String toString() {
-        return showItemDetailsAsText();
+        String output=new String();
+        output+=(getName() + " x " + getUnits());
+        return output;
     }
 }

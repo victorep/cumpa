@@ -1,7 +1,6 @@
 package cumpa.cli;
 
 import cumpa.App;
-import cumpa.datamodel.GroceryItem;
 import cumpa.datamodel.GroceryList;
 
 import java.util.Scanner;
@@ -34,13 +33,13 @@ public class MainCLI {
                     System.out.println("=== END OPTIONS LIST===");
                     break;
                 case 1:
-                    System.out.print(groceryList.listAllGroceriesAsText( ));
+                    System.out.print(groceryList.toString( ));
                     break;
                 case 2:
-                    groceryList.getMultipleGroceryItemsCLI( );
+                    groceryList.addCLI( );
                     break;
                 case 3:
-                    groceryList.removeItemCLI();
+                    groceryList.removeCLI();
                 case 9:
                     exit=true;
                     break;

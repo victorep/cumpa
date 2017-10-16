@@ -1,34 +1,13 @@
 package cumpa.datamodel;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
 
     Scanner scanner = new Scanner(System.in);
 
-    public void addItem(T item){
-        this.add(item);
-    }
-
-    public void removeItem(int id){
-        this.remove(id);
-    }
-    public T getItem(int id){
-        return this.get(id);
-    }
-
-    public String listAllGroceriesAsText(){
-        String output=new String();
-        output+="=== Grocery items list ===\n";
-        for ( int i=0;i<this.size();i++){
-            output+="("+(i+1)+") " +this.get(i).showItemDetailsAsText()+ "\n";
-        }
-        output+="==========================\n";
-        return output;
-    }
-    public void removeItemCLI(){
+    public void removeCLI(){
         int id;
         System.out.print("Enter the item id: ");id = scanner.nextInt();
         scanner.nextLine();
@@ -37,8 +16,8 @@ public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
         if (id >0 &&
                 id<=this.size()){
             id--;
-            System.out.println("Removing Item "+getItem(id).getItemName());
-            removeItem(id);
+            System.out.println("Removing Item "+get(id).getName());
+            remove(id);
             System.out.println("Removed succesfully");
         }else {
             System.out.printf("Item %s not found %s\n", id,this.size());
@@ -47,7 +26,7 @@ public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
 
     }
 
-    public void getMultipleGroceryItemsCLI(){
+    public void addCLI(){
 
         boolean _continue = true;
         int i=0;
@@ -55,7 +34,7 @@ public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
             i++;
             T item =(T) new GroceryItem();
             item.getItemDetailsCLI();
-            addItem(item);
+            add(item);
             System.out.print("Enter another one[Y/n] : ");
             boolean validOption=false;
             while (!validOption)
@@ -81,7 +60,14 @@ public class GroceryList<T extends GroceryItem> extends ArrayList<T>{
         System.out.println("You entered " + i + " items.");
     }
 
-    public ArrayList<T> getList() {
-        return this;
+    @Override
+    public String toString(){
+        String output=new String();
+        output+="=== Grocery items list ===\n";
+        for ( int i=0;i<this.size();i++){
+            output+="("+(i+1)+") " +this.get(i).toString()+ "\n";
+        }
+        output+="==========================\n";
+        return output;
     }
 }

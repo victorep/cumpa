@@ -26,24 +26,24 @@ public class GroceryItemTest {
     @Test
     public void getItemName() throws Exception {
 
-        assertEquals(this.name,item.getItemName());
+        assertEquals(this.name,item.getName());
     }
 
     @Test
     public void setItemName() throws Exception {
-        item.setItemName("more-beer");
-        assertEquals("more-beer",item.getItemName());
+        item.setName("more-beer");
+        assertEquals("more-beer",item.getName());
     }
 
     @Test
     public void getItemUnits() throws Exception {
-        assertEquals(units,item.getItemUnits());
+        assertEquals(units,item.getUnits());
     }
 
     @Test
     public void setItemUnits() throws Exception {
-        item.setItemUnits(1234);
-        assertEquals(1234,item.getItemUnits());
+        item.setUnits(1234);
+        assertEquals(1234,item.getUnits());
     }
 
 //    @Test

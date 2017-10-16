@@ -40,11 +40,11 @@ public class GroceryListPersistanceXMLImpl implements GroceryListPersistance {
             rootElement.appendChild(xmlItem);
 
             Attr name = doc.createAttribute("name");
-            name.setValue(item.getItemName());
+            name.setValue(item.getName());
             xmlItem.setAttributeNode(name);
 
             Attr units = doc.createAttribute("units");
-            units.setValue(String.valueOf(item.getItemUnits()));
+            units.setValue(String.valueOf(item.getUnits()));
             xmlItem.setAttributeNode(units);
         }
         //write to disk

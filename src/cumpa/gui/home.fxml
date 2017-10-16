@@ -13,6 +13,7 @@
             fx:controller="cumpa.gui.HomeController"
             prefHeight="300.0" prefWidth="350.0"
             maxHeight="300.0"  maxWidth="350"
+            fx:id="homePane"
 
 
 >
@@ -42,7 +43,7 @@
                 <Insets topRightBottomLeft="10" />
             </padding>
             <Button fx:id="reloadGroceries" text="REFRESH" prefWidth="90" onAction="#buttonPress"/>
-            <Button fx:id="addGroceries"    text="ADD"  prefWidth="90" onAction="#buttonPress"/>
+            <Button fx:id="addGroceries"    text="ADD"  prefWidth="90" onAction="#showNewItemDialog"/>
             <Button fx:id="removeGroceries" text="REMOVE"  prefWidth="90" onAction="#buttonPress"/>
 
             <padding>

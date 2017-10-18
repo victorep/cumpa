@@ -1,11 +1,9 @@
-package cumpa;
+package me.vepu.cumpa.tests;
 
-import cumpa.datamodel.GroceryItem;
+import me.vepu.cumpa.app.datamodel.GroceryItem;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class GroceryItemTest {
     private GroceryItem item ;

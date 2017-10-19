@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="client-gui" />
+        <module name="core-app" />
+        <module name="server-spark-rest" />
+        <module name="server-spring" />
+        <module name="tests" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client-gui" target="1.8" />
+      <module name="core-app" target="1.8" />
+      <module name="cumpa" target="1.8" />
+      <module name="server-spark-rest" target="1.8" />
+      <module name="server-spring" target="1.8" />
+      <module name="tests" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

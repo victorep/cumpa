@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>me.vepu.cumpa</groupId>
-    <artifactId>app</artifactId>
+    <artifactId>core-app</artifactId>
     <version>0.1</version>
 
 

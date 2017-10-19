@@ -14,10 +14,11 @@
     <name>client-gui</name>
     <dependencies>
         <dependency>
-            <groupId>cumpa</groupId>
-            <artifactId>app</artifactId>
+            <groupId>me.vepu.cumpa</groupId>
+            <artifactId>core-app</artifactId>
             <version>0.1</version>
         </dependency>
+
     </dependencies>
     
 </project>

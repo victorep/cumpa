@@ -6,11 +6,14 @@
 
     <groupId>me.vepu</groupId>
     <artifactId>cumpa</artifactId>
+    <packaging>pom</packaging>
     <version>0.1</version>
     <modules>
         <module>core-app</module>
         <module>client-gui</module>
         <module>tests</module>
+        <module>server-spark-rest</module>
+        <module>server-spring</module>
     </modules>
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
